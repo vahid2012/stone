@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import SchemaJsonLd from '../components/SchemaJsonLd.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  image?: string;
+  schema?: object | object[];
+}
+const { title, description, canonical, image, schema } = Astro.props;
+
+const site = 'https://www.stonebuysell.ir';
+const globalSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${site}/#organization`,
+      name: 'StoneBuySell',
+      url: site,
+      email: 'sanat.abr@gmail.com',
+      telephone: '+989143403431',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Urmia',
+        addressRegion: 'West Azerbaijan',
+        addressCountry: 'IR',
+      },
+      description: 'Quarry-direct exporter of Iranian travertine, marble, granite, onyx, limestone and crystal stone blocks and slabs for international projects.',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site}/#website`,
+      url: site,
+      name: 'StoneBuySell',
+      publisher: { '@id': `${site}/#organization` },
+    },
+    {
+      '@type': 'LocalBusiness',
+      '@id': `${site}/#localbusiness`,
+      name: 'StoneBuySell Urmia Export Desk',
+      telephone: '+989143403431',
+      email: 'sanat.abr@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Urmia',
+        addressRegion: 'West Azerbaijan',
+        addressCountry: 'IR',
+      },
+      priceRange: '$$',
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
+    },
+  ],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <SeoHead title={title} description={description} canonical={canonical} image={image} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+    <SchemaJsonLd schema={globalSchema} />
+    {schema && <SchemaJsonLd schema={schema} />}
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <FloatingWhatsApp />
+  </body>
+</html>

@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  image?: string;
+}
+const { title, description, canonical, image } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.stonebuysell.ir';
+const ogImage = image ? `${site}${image}` : `${site}/og-cover.jpg`;
+const canonicalUrl = `${site}${canonical}`;
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title} | StoneBuySell</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="StoneBuySell" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />

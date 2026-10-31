@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppCTA from '../components/WhatsAppCTA.astro';
+
+const aboutImage = 'https://images.pexels.com/photos/8112160/pexels-photo-8112160.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop';
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.stonebuysell.ir/' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://www.stonebuysell.ir/about/' },
+  ],
+};
+---
+<BaseLayout
+  title="About StoneBuySell — Urmia Stone Export Desk"
+  description="StoneBuySell is a quarry-direct exporter of Iranian natural stone based in Urmia, West Azerbaijan. Learn about our credentials, port access, and quality control."
+  canonical="/about/"
+  image="/og-cover.jpg"
+  schema={breadcrumb}
+>
+  <section class="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+    <nav class="mb-6 text-sm text-stone-500">
+      <a href="/" class="hover:text-stone-700">Home</a> <span class="mx-1">/</span> <span class="text-stone-700">About</span>
+    </nav>
+    <h1 class="text-3xl sm:text-4xl">About StoneBuySell</h1>
+    <p class="mt-4 text-lg text-stone-600">Quarry-direct Iranian natural stone, exported from Urmia to the world.</p>
+
+    <img
+      src={aboutImage}
+      alt="StoneBuySell export team in a professional office setting in Urmia, Iran"
+      width="1200"
+      height="800"
+      loading="eager"
+      decoding="async"
+      class="mt-8 w-full rounded-2xl object-cover shadow-lg"
+      style="max-height: 420px;"
+    />
+
+    <div class="prose-guide mt-8">
+      <h2>Our Story</h2>
+      <p>StoneBuySell is a B2B natural stone export company headquartered in Urmia, West Azerbaijan Province, Iran. We connect international stone buyers — factories, importers, distributors, and project contractors — directly with Iranian quarries producing some of the world's most sought-after dimension stone.</p>
+      <p>Iran is one of the largest dimension stone producers globally, with vast reserves of travertine, marble, granite, onyx, limestone, and crystal stone. Our role is to make that supply accessible, documented, and reliable for buyers who need consistent quality and competitive FOB pricing.</p>
+
+      <h2>Urmia Export Desk</h2>
+      <p>Our Urmia office serves as the central coordination point for sourcing, quality inspection, documentation, and logistics. From here we manage relationships with quarries across Iran — from Azarshahr travertine to Natanz granite to Dehbid crystal marble — and consolidate shipments for export through Bandar Abbas.</p>
+
+      <h2>Port Access — Bandar Abbas</h2>
+      <p>All shipments are containerized and exported FOB Bandar Abbas, Iran's largest and most active port on the Persian Gulf. This gives our buyers direct access to major shipping routes across the Middle East, Asia, Europe, and beyond. We coordinate with shipping lines, freight forwarders, and customs brokers to ensure smooth loading and on-time departure.</p>
+
+      <h2>Quality Control</h2>
+      <p>Every shipment is inspected before loading. Our quality control checklist covers block dimensions, color consistency, structural integrity, absence of cracks and veins that compromise yield, and compliance with buyer specifications. We provide photos and inspection reports so you know exactly what is being loaded into your container.</p>
+
+      <h2>What We Export</h2>
+      <ul>
+        <li><strong>Travertine</strong> — blocks and slabs from Azarshahr, Takab, and Mahallat</li>
+        <li><strong>Marble</strong> — Pietra Gray, Harsin, White Crystal, and Dehbid</li>
+        <li><strong>Granite</strong> — red, pink, and gray from Natanz and Urmia</li>
+        <li><strong>Onyx</strong> — green and honey translucent decorative stone</li>
+        <li><strong>Limestone</strong> — cream and beige for cladding and paving</li>
+        <li><strong>Crystal Stone</strong> — Neyriz and Dehbid high-purity white marble</li>
+      </ul>
+    </div>
+
+    <WhatsAppCTA message="Want to learn more about our export process and credentials? Let's talk." />
+  </section>
+</BaseLayout>

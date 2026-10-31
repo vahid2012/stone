@@ -1,0 +1,50 @@
+---
+const externalLinks = [
+  { href: 'https://www.urummarkaz.ir/export-stone-building-materials-urmia', label: 'export stone and building materials from Urmia' },
+  { href: 'https://www.palude.ir/export/urmia-apple-export-wholesale/', label: 'Urmia apple export wholesale' },
+  { href: 'https://www.sevlux.ir/istanbul-event-organization/', label: 'Istanbul event organization' },
+  { href: 'https://www.toursantalya.ir/antalya-business-tourism/', label: 'Antalya business tourism' },
+];
+---
+<footer class="mt-16 border-t border-stone-200 bg-stone-900 text-stone-300">
+  <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+    <div class="grid gap-8 md:grid-cols-4">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 text-xl font-bold text-white">
+          <span class="inline-block h-7 w-7 rounded bg-stone-600"></span>
+          StoneBuySell
+        </div>
+        <p class="mt-3 max-w-md text-sm leading-relaxed text-stone-400">
+          Quarry-direct exporter of Iranian travertine, marble, granite, onyx, limestone and crystal stone blocks and slabs for international projects.
+        </p>
+        <p class="mt-4 text-sm text-stone-400">
+          <a href="mailto:sanat.abr@gmail.com" class="hover:text-white">sanat.abr@gmail.com</a><br />
+          WhatsApp: <a href="https://wa.me/989143403431" target="_blank" rel="noopener noreferrer" class="hover:text-white">09143403431</a><br />
+          Urmia, West Azerbaijan Province, Iran
+        </p>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Pages</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/collaboration/" class="hover:text-white">Collaboration</a></li>
+          <li><a href="/contact/" class="hover:text-white">Contact</a></li>
+          <li><a href="/guides/" class="hover:text-white">Guides</a></li>
+          <li><a href="/blog/" class="hover:text-white">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Partner Resources</h3>
+        <ul class="space-y-2 text-sm">
+          {externalLinks.map((link) => (
+            <li>
+              <a href={link.href} target="_blank" rel="noopener noreferrer" class="hover:text-white">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-stone-700 pt-6 text-center text-xs text-stone-500">
+      <p>&copy; {new Date().getFullYear()} StoneBuySell. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
